@@ -1,0 +1,55 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trail15-Deploy
+spec:
+  minReadySeconds: 30
+  replicas: 10
+  selector:
+    matchLabels:
+      env: dev
+  strategy:
+    type: RollingUpdate
+    RollingUpdate:
+    maxSurge: 40%
+    maxUnavailable: 40%
+  template:
+    metadata: 
+      labels:
+        env: dev
+    spec:
+      containers:
+        - name: jenkins
+          image: jenkins/jenkins
+          resources:
+      limits:
+        memory: 2Gi
+        cpu: 2000m
+      ports: 
+        - containerPort: 8080
+          
+          
+          
+          
+          
+          
+          
+          
+---
+apiVersion:  v1 
+kind: Service
+metadata:
+  name: web-svc
+spec:
+  selector:
+    env: dev
+  type: NodePort
+  ports:
+    - name: jenkins
+      port: 80
+      targetPort: 80
+      nodePort: 30001
+
+
+

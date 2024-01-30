@@ -1,0 +1,28 @@
+# Create a k8s pod manifest with following
+# init container: create an alpine container with sleep 30s
+# container: run nginx or httpd
+
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: trail5
+spec:
+  initContainers:
+    - name: alpine
+      image: alpine
+      args:
+        - sleep
+        - 10s
+  containers:
+    - name: apache
+      image: httpd
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+
+
+
+
+

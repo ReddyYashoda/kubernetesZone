@@ -1,0 +1,22 @@
+# Create a manifest for ReplicationController with 3 nginx pods with label app = nginx
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+  name: first
+spec:
+  minReadySeconds: 3
+  replicas: 3
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: nginx
+        env: dev
+        version: "1.0" 
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+

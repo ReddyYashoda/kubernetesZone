@@ -1,0 +1,18 @@
+# Run an alpine contianer with sleep 1d as CMD
+
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: trail2
+spec:
+  containers: 
+    - name: alpinelife1day
+      image: alpine
+      args:
+        - sleep
+        - 1d
+      resources:
+        limits:
+          cpu: 500m
+          memory: 256Mi

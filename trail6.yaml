@@ -1,0 +1,38 @@
+# Lets add two more init continers with sleep 10s and add one more container in containers
+
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: trail6
+spec:
+  restartPolicy: OnFailure
+  initContainers:
+    - name: init1
+      image: alpine
+      args:
+        - sleep
+        - 10s
+    - name: init2
+      image: alpine
+      args:
+        - sleep
+        - 10s
+    - name: init3
+      image: alpine
+      args:
+        - sleep
+        - 10s
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+    - name: apache
+      image: httpd
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi

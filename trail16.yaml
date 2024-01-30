@@ -1,0 +1,27 @@
+#Try to write a pod manifest for any application with web interface
+#spring petclinic
+#nop
+#apache
+#httpd
+#tomcat
+#Ensure your manifests always have
+#resources
+#probes
+#ports
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trail16
+spec:
+  containers:
+    - name: apache
+      image: httpd
+      ports: 
+        - name: myport
+          containerPort: 80
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi

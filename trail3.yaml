@@ -1,0 +1,26 @@
+# Run an mysql contianer and pass environmental variables to set username, root password, password, database
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trail3
+spec: 
+  containers:
+    - name: mysql
+      image: 8.0-debian
+      resources:
+        limits:
+          cpu: 500m
+          memory: 256Mi
+  env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: admin123
+    - name: MYSQL_DATABASE
+      value: emp
+    - name: MYSQL_USER
+      value: nop
+    - name: MYSQL_PASSWORD
+      value: admin123
+  
+

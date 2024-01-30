@@ -1,0 +1,15 @@
+#Run an alpine container in a pod which goes into exited state immedietly
+
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: trail1
+spec:
+  containers:
+    - name: dyingalpine
+      image: alpine
+      resources:
+        limits:
+          cpu: 500m
+          memory: 256Mi

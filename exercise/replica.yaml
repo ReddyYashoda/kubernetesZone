@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: service
+metadata:
+  name: replica
+  labels:
+    name: test
+spec:
+  minReadySeconds: 3
+  replicas: 3
+  selector:
+    matchLabels:
+    app: spc
+template:
+  metadata:
+    labels:
+      env = dev
+      app = nginx
+      version = 1.0
+  spec:
+    container:
+      name: nginx
+      image: nginx
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+
+
+    

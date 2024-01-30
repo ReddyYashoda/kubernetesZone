@@ -1,0 +1,1 @@
+# create 3 pods manually with label app=nginx and then create the rs from trail1

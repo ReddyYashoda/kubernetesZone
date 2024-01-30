@@ -1,0 +1,2 @@
+# Create a replica set with 3 httpd pods
+# create a service with some matching labels
